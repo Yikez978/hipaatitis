@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+body { 
+  padding-top: 70px; 
+  padding-left: 2em; 
+  padding-right: 2em; 
+}
+
+.navbar-brand {
+  font-family: impact, san-serif;
+}
+.navbar-brand img {
+  width: 2em;
+  height: 2em;
+  float: right;
+  margin-top: -8px;
+  margin-left: 2px;
+}
+
+h1 {
+  font-family: impact, san-serif;
+}
+.header-img {
+  height: 4em;
+  margin: auto 0;
+}

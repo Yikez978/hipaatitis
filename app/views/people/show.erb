@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Hello, <%= @person.name %> <small>(if that's really you)</small></h3>
+  </div>
+  <div class="panel-body">
+    <p>You have appointments with <%= pluralize @person.appointments.count, 'person' %> in the future.</p>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Upcoming Appointments</h3>
+  </div>
+  <table class="table table-condensed">
+    <th>When</th>
+    <th>What</th>
+    <th>Attendants</th>
+  <% @person.appointments.order(:when).each do |appointment| %>
+    <tr>
+      <td class="text-nowrap">
+        <%= appointment.when %><br/>
+        <%= time_ago_in_words appointment.when %> from now
+      </td>
+      <td><b><%= appointment.title %></b><p><%= appointment.body %></p>
+      </td>
+      <td>
+        <%= attendant_links(@person, appointment) %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

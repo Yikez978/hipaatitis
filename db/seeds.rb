@@ -6,7 +6,7 @@ roles = [Role.create!(title: 'Doctor'), Role.create!(title: 'Patient')]
 
 # create some people
 people = YAML.load_file('db/names.yml').map do |name|
-  Person.create!(name: name, email: "#{name}@hipaatitus.dataturd.com").tap do |t|
+  Person.create!(name: name, email: "#{name.downcase}@hipaatitus.dataturd.com").tap do |t|
     t.roles << roles.sample
   end
 end
@@ -24,20 +24,22 @@ people.each do |person|
   end
 end
 
+doctors = Person.joins(:roles).where(roles: { title: 'Doctor' }).to_a
+patients = Person.joins(:roles).where(roles: { title: 'Patient' }).to_a
+
 procedures = YAML.load_file('db/procedures.yml').map(&:symbolize_keys)
 # each person has an appointment for a procedure with some one else
-people.each do |person|
-  # get a sample of others, remove the same person just in case.
-  other = (people - [person]).sample
-  procedure = procedures.sample
+doctors.each do |doctor|
   # up to 5 random appointments
   (rand(5) + 1).times do
+    other = patients.sample
+    procedure = procedures.sample
     appointment = Appointment.create!(procedure.merge(when: Time.current + rand(365).days))
-    appointment.attendants.create!(person: person)
+    appointment.attendants.create!(person: doctor)
     appointment.attendants.create!(person: other)
 
     # add a note to each appointment
-    appointment.notes.create!(title: "Please don't be late, #{person}", body: hipsums.sample, author: person)
+    appointment.notes.create!(title: "Please don't be late, #{other}", body: hipsums.sample, author: doctor)
   end
 end
 

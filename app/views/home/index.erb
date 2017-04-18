@@ -1,0 +1,25 @@
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Hipaatitis
+      <%= image_tag 'logo.svg', alt: 'Hipaatitis', class: 'header-img' %>
+    </h1>
+    <p>
+    Are you sick of privacy?<br/>
+    Do you want to be free from the shadows?<br/>
+    This CRM has you <em>un</em>covered.<br/>
+    Make all your appointments out in the open!
+    </p>
+    <p>
+      <%= link_to "I'm a Doctor", search_url(role: 'Doctor'), class: 'btn btn-primary btn-lg', role: 'button' %>
+      <%= link_to "I'm a Patient", search_url(role: 'Patient'), class: 'btn btn-primary btn-lg', role: 'button' %>
+    </p>
+    <p>We currently have
+    <%= pluralize @counts['Doctor'], 'doctor' %> and
+    <%= pluralize @counts['Patient'], 'patient' %> registered!
+    </p>
+  </div>
+</div>
+<p class="text-center smaller">
+Disclaimer: This is not a real product. If you believe it should be, please send money <a href="#">here</a>
+</p>
+
