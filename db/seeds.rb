@@ -6,7 +6,7 @@ roles = [Role.create!(title: 'Doctor'), Role.create!(title: 'Patient')]
 
 # create some people
 people = YAML.load_file('db/names.yml').map do |name|
-  Person.create!(name: name, email: "#{name.downcase}@hipaatitus.dataturd.com").tap do |t|
+  Person.create!(name: name, email: "#{name.downcase}@hipaatitis.dataturd.com").tap do |t|
     t.roles << roles.sample
   end
 end
