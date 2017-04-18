@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ddrscott/sql_probe
-  revision: 306113aaea6a389a03557a893021108aa6bb4da3
+  revision: b51781159bd76dc0f6013342521b61308b4cc95d
   specs:
     sql_probe (0.1.0)
       rails (>= 4.2.7.1)
