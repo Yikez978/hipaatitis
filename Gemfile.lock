@@ -1,3 +1,9 @@
+PATH
+  remote: ../sql_probe
+  specs:
+    sql_probe (0.1.0)
+      rails (>= 4.2.7.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -175,6 +181,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  sql_probe!
   table_print
   turbolinks (~> 5)
   tzinfo-data

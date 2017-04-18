@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   match 'search/:role', to: 'home#search', as: 'search', via: %i(get post)
 
   get 'people/:id', to: 'people#show', as: 'people'
+
+  mount SqlProbe::Engine => '/sql_probe' if defined? SqlProbe
 end
