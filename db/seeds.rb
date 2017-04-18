@@ -34,7 +34,7 @@ doctors.each do |doctor|
   (rand(5) + 1).times do
     other = patients.sample
     procedure = procedures.sample
-    appointment = Appointment.create!(procedure.merge(when: Time.current + rand(365).days))
+    appointment = Appointment.create!(procedure.merge(when: Time.current + rand(100).days))
     appointment.attendants.create!(person: doctor)
     appointment.attendants.create!(person: other)
 
