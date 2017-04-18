@@ -1,0 +1,5 @@
+<% if role == 'Doctor' %>
+  <%= image_tag(['medical-kit.svg', 'syringe.svg'].sample, class: 'person-icon') %>
+<% elsif role == 'Patient' %>
+  <%= image_tag(['sick-1f912.svg', 'sick-1f915.svg'].sample, class: 'person-icon') %>
+<% end %>
