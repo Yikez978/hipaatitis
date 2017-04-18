@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
   match 'search/:role', to: 'home#search', as: 'search', via: %i(get post)
 
-  resource :people
+  get 'people/:id', to: 'people#show', as: 'people'
 end
