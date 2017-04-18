@@ -1,5 +1,6 @@
-PATH
-  remote: ../sql_probe
+GIT
+  remote: https://github.com/ddrscott/sql_probe
+  revision: 7909d908e953f7a8899301361e796b0051eed707
   specs:
     sql_probe (0.1.0)
       rails (>= 4.2.7.1)
