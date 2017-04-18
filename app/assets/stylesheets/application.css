@@ -37,3 +37,16 @@ h1 {
   height: 4em;
   margin: auto 0;
 }
+
+.person-icon {
+  float: right;
+  width: 3em;
+  height: 3em;
+}
+
+.footer {
+  margin-top: 5em;
+}
+.attribution {
+  font-size: .8em;
+}

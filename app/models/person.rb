@@ -10,4 +10,12 @@ class Person < ApplicationRecord
   def to_s
     "#{name} <#{email}>"
   end
+
+  def role?(title)
+    roles.detect { |role| title == role.title }
+  end
+
+  def role_title
+    roles[0].try(:title)
+  end
 end
