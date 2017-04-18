@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'pry-rails'
 gem 'table_print'
 
-gem 'sql_probe', path: '../sql_probe' if File.directory?('../sql_probe')
+gem 'sql_probe', git: 'https://github.com/ddrscott/sql_probe'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
