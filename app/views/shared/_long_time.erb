@@ -1,6 +1,6 @@
 <% date || raise(ArgumentError, ':date is required!') %>
 <% if date %>
 <%= date.strftime("%A, %B #{date.day.ordinalize}, %Y") %><br/>
-<%= date.strftime("@ %I:%m %p") %><br/>
+<%= date.strftime("@ %-I:%m %p") %><br/>
 <%= time_ago_in_words date %> from now
 <% end %>
