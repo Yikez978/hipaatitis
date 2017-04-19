@@ -13,7 +13,7 @@
       <ul class="nav navbar-nav">
         <li <%= 'class=active' if params[:controller] == 'people' and params[:id].blank? %>><%= link_to "Welcome, #{current_user.name}", people_path %></li>
         <li <%= 'class=active' if params[:controller] == 'notes' %>><%= link_to 'Notes', notes_path  %></li>
-        <li <%= 'class=active' if params[:controller] == 'appointments' and params[:id].blank? %>><%= link_to 'All Appointments', 'appointments' %></li>
+        <li <%= 'class=active' if params[:controller] == 'appointments' and params[:id].blank? %>><%= link_to 'All Appointments', appointments_path %></li>
         <li><%= link_to 'Probe*', '/sql_probe', target: 'probe' %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
