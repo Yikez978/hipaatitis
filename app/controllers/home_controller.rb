@@ -1,12 +1,16 @@
 class HomeController < ApplicationController
   def index
+    if current_user_id
+      redirect_to people_path
+      return
+    end
     @counts = Person.joins(:roles).group('roles.title').count
   end
 
   def sign_in
     found = Person.find_by!(params[:person].permit(:email))
     session[:current_user_id] = found.id
-    redirect_to people_path(id: found.id)
+    redirect_to people_path
   end
 
   def sign_out
