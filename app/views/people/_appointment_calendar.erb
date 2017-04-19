@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="btn-group pull-right" role="group" aria-label="calendar navigation">
+      <%= link_to '<< Previous', people_path(id: params[:id], month: @month - 1.month), class: 'btn btn-default btn-xs' %>
+      <%= link_to 'Current Month', people_path(id: params[:id]), class: 'btn btn-default btn-xs' %>
+      <%= link_to 'Next >>', people_path(id: params[:id], month: @month + 1.month), class: 'btn btn-default btn-xs' %>
+    </div>
+    <h3 class="panel-title">Appointments in <%= @month.strftime('%B, %Y') %> </h3>
+  </div>
+  <div class="table-responsive">
+    <%= render 'shared/appointments', date: @month, appointments: @person.appointments %>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+class AppointmentsController < ApplicationController
+  before_action :find_appointment, except: :index
+
+  def show
+  end
+
+  private
+
+  def find_appointment
+    @appointment = Appointment.find(params[:id])
+  end
+end

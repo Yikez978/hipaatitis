@@ -9,4 +9,8 @@ module ApplicationHelper
       .map { |attendant| link_to(attendant.person.to_s, people_path(id: attendant.person_id)) }
       .join(',').html_safe + ' and you'.html_safe
   end
+
+  def link_to_appointment(appointment, **html)
+    link_to(appointment.when.strftime("#{appointment.title} @ %-I:%m %p"), '#', **html)
+  end
 end

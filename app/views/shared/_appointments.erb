@@ -1,0 +1,24 @@
+<% date || raise(ArgumentError, ':date is required!') %>
+<% appointments || raise(ArgumentError, ':appointments are required!') %>
+
+<% by_date = appointments.group_by{|g| g.when.to_date} %>
+<% first_date = Calendar.beginning_of_calendar(date) %>
+<% last_date = Calendar.end_of_calendar(date) %>
+
+<table class="table table-bordered calendar">
+  <% Calendar.days_of_week.each do |day| %>
+    <th class="text-center"><%= day %></th>
+  <% end %>
+  <% Calendar.group_by_week(first_date..last_date).each do |week, days| %>
+    <tr>
+      <% days.each do |day| %>
+        <td class="cal-td <%= date.month != day.month ? 'cal-off' : '' %>">
+          <div class="cal-day"><%= day.day %></div>
+          <% by_date[day].try(:each) do |appointment| %>
+            <div class="cal-appt"><%= link_to_appointment(appointment, class: 'btn btn-xs btn-primary') %></div>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

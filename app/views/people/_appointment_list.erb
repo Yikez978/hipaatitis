@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="btn-group pull-right" role="group" aria-label="calendar navigation">
+      <%= link_to('Show Next Apppointment', people_path(id: params[:id], month: @person.next_appointment_time), class: 'btn btn-default btn-xs') if @person.next_appointment_time %>
+    </div>
+    <h3 class="panel-title">Upcoming Appointments</h3>
+  </div>
+  <table class="table table-condensed">
+    <th>When</th>
+    <th>What</th>
+    <th>Attendants</th>
+    <% @person.appointments.order(:when).each do |appointment| %>
+      <tr>
+        <td class="text-nowrap">
+          <%= render 'shared/long_time', date: appointment.when %>
+        </td>
+        <td><b><%= appointment.title %></b><p><%= appointment.body %></p>
+        </td>
+        <td>
+          <%= attendant_links(@person, appointment) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

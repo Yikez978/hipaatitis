@@ -18,4 +18,12 @@ class Person < ApplicationRecord
   def role_title
     roles[0].try(:title)
   end
+
+  def next_appointment
+    appointments.detect { |d| d.when >= Time.current }
+  end
+
+  def next_appointment_time
+    next_appointment.try(:when)
+  end
 end
