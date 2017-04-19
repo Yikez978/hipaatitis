@@ -3,10 +3,10 @@
   <h1>Which <b><%= params[:role].downcase %></b> are you?</h1>
 
   <hr/>
-  <%= form_tag do %>
+  <%= form_tag(sign_in_path) do %>
     <div class="form-group">
       <label for="exampleInputEmail1">Select your identity below. If you can't find yourself. It's okay. Pretend to be someone else.</label>
-      <%= select_people(@people) %>
+      <%= select_people_sign_in(@people) %>
     </div>
     <button type="submit" class="btn btn-default btn-primary btn-lg">View Goodies</button>
   <% end %>

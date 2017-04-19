@@ -1,6 +1,10 @@
 class AppointmentsController < ApplicationController
   before_action :find_appointment, except: :index
 
+  def index
+    @appointments = Appointment.all
+  end
+
   def show
   end
 

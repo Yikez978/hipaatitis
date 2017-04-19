@@ -5,7 +5,11 @@
       <%= link_to 'Current Month', people_path(id: params[:id]), class: 'btn btn-default btn-xs' %>
       <%= link_to 'Next >>', people_path(id: params[:id], month: @month + 1.month), class: 'btn btn-default btn-xs' %>
     </div>
-    <h3 class="panel-title">Appointments in <%= @month.strftime('%B, %Y') %> </h3>
+    <h3 class="panel-title">
+      <%= @person == current_user ? "Your" : @person.name %>
+      appointments in <%= @month.strftime('%B, %Y') %>
+      <small>(<%= pluralize @person.appointments.count, 'appointment' %> in the future.)</small>
+    </h3>
   </div>
   <div class="table-responsive">
     <%= render 'shared/appointments', date: @month, appointments: @person.appointments %>

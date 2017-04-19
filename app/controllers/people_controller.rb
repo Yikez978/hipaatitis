@@ -8,6 +8,6 @@ class PeopleController < ApplicationController
   private
 
   def find_person
-    @person = Person.find(params[:id])
+    @person = Person.find(params[:id] || current_user_id)
   end
 end

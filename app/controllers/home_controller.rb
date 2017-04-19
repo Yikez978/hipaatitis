@@ -3,12 +3,18 @@ class HomeController < ApplicationController
     @counts = Person.joins(:roles).group('roles.title').count
   end
 
+  def sign_in
+    found = Person.find_by!(params[:person].permit(:email))
+    session[:current_user_id] = found.id
+    redirect_to people_path(id: found.id)
+  end
+
+  def sign_out
+    session.delete(:current_user_id)
+    redirect_to action: 'index'
+  end
+
   def search
-    if request.post?
-      found = finder.find_by!(params[:person].permit(:id))
-      redirect_to people_path(id: found.id)
-      return
-    end
     @role = params[:role]
     @people = finder
   end

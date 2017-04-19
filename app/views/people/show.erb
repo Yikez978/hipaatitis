@@ -1,11 +1,2 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Hello, <%= @person.name %> <small>(if that's really you)</small></h3>
-  </div>
-  <div class="panel-body">
-    <%= render 'layouts/person_icons', role: @person.role_title %>
-    <p>You have appointments with <%= pluralize @person.appointments.count, 'person' %> in the future.</p>
-  </div>
-</div>
 <%= render 'appointment_calendar' %>
 <%= render 'appointment_list' %>

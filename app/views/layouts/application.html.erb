@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <%= render 'layouts/top' %>
+    <%= render 'layouts/top' if current_user_id %>
     <div class="container">
       <div class="row">
         <%= yield %>

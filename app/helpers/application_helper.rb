@@ -3,6 +3,10 @@ module ApplicationHelper
     collection_select(:person, :id, people, :id, :to_s, {}, class: 'form-control')
   end
 
+  def select_people_sign_in(people)
+    collection_select(:person, :email, people, :email, :to_s, {}, class: 'form-control')
+  end
+
   def attendant_links(owner, appointment)
     appointment.attendants
       .reject { |r| r.person == owner }
