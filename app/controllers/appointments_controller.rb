@@ -2,10 +2,9 @@ class AppointmentsController < ApplicationController
   before_action :find_appointment, except: :index
 
   def index
-    @appointments = Appointment.all
-  end
+    @month = (params[:month] ? Date.parse(params[:month]) : Date.current).beginning_of_month
 
-  def show
+    @appointments = Appointment.where(when: @month.beginning_of_month..@month.end_of_month)
   end
 
   private

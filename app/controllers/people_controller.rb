@@ -3,8 +3,6 @@ class PeopleController < ApplicationController
 
   def show
     @month = (params[:month] ? Date.parse(params[:month]) : Date.current).beginning_of_month
-
-    @notes = @person.notes
   end
 
   private

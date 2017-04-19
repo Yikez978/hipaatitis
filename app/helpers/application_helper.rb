@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def select_people(people)
     collection_select(:person, :id, people, :id, :to_s, {}, class: 'form-control')
   end

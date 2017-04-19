@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   delete '/', to: 'home#sign_out', as: 'sign_out'
 
   get 'people(/:id)', to: 'people#show', as: 'people'
-  get 'people/:person_id/appointments/:id', to: 'appointments#show', as: 'appointments'
+
+  resources :appointments
+  resources :notes
 
   mount SqlProbe::Engine => '/sql_probe' if defined? SqlProbe
 end

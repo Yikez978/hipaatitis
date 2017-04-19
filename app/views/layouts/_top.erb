@@ -11,10 +11,12 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Probe", '/sql_probe', target: 'probe' %></li>
+        <li <%= 'class=active' if params[:controller] == 'people' and params[:id].blank? %>><%= link_to "Welcome, #{current_user.name}", people_path %></li>
+        <li <%= 'class=active' if params[:controller] == 'notes' %>><%= link_to 'Notes', notes_path  %></li>
+        <li <%= 'class=active' if params[:controller] == 'appointments' %>><%= link_to 'All Appointments', 'appointments' %></li>
+        <li><%= link_to 'Probe*', '/sql_probe', target: 'probe' %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Welcome, #{current_user.name}", people_path %></li>
         <li><%= link_to 'Sign Out', sign_out_path, method: 'delete' %></li>
       </ul>
     </div>
