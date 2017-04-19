@@ -1,0 +1,19 @@
+<% notes || raise(ArgumentError, ':notes are required!') %>
+
+<table class="table table-bordered calendar">
+  <tr>
+    <th>From</th>
+    <th>Note</th>
+    <th style="width: 10em">Date</th>
+  </tr>
+  <% notes.each do |note| %>
+    <tr>
+      <td><%= note.author.name %></td>
+      <td>
+        <b><%= note.title %></b><br/>
+        <%= note.body %>
+      </td>
+      <td><%= time_ago_in_words note.updated_at %> ago </td>
+    </tr>
+  <% end %>
+</table>

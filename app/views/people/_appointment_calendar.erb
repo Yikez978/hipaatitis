@@ -6,7 +6,7 @@
       <%= link_to 'Next >>', people_path(id: params[:id], month: @month + 1.month), class: 'btn btn-default btn-xs' %>
     </div>
     <h3 class="panel-title">
-      <%= @person == current_user ? "Your" : @person.name %>
+      <%= @person == current_user ? "Your" : "#{@person.name}'s" %>
       appointments in <%= @month.strftime('%B, %Y') %>
       <small>(<%= pluralize @person.appointments.count, 'appointment' %> in the future.)</small>
     </h3>
