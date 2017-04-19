@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @appointment.title %></h3>
+  </div>
+  <div class="panel-body">
+    <%= render 'shared/long_time', date: @appointment.when %>
+    <hr/>
+    <p> <%= @appointment.body %> </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Attendants</h3>
+      </div>
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+        <% @appointment.people.each do |person| %>
+          <tr>
+            <td><%= person.name %></td>
+            <td>
+              <%= person.email %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Notes</h3>
+      </div>
+      <%= render 'shared/notes', notes: @appointment.notes %>
+    </div>
+  </div>
+</div>

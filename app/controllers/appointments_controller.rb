@@ -7,6 +7,10 @@ class AppointmentsController < ApplicationController
     @appointments = Appointment.where(when: @month.beginning_of_month..@month.end_of_month)
   end
 
+  def show
+
+  end
+
   private
 
   def find_appointment

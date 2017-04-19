@@ -16,6 +16,6 @@ module ApplicationHelper
   end
 
   def link_to_appointment(appointment, **html)
-    link_to(appointment.when.strftime("#{appointment.title} @ %-I:%m %p"), '#', **html)
+    link_to(appointment.when.strftime("#{appointment.title} @ %-I:%m %p"), appointment_path(appointment), **html)
   end
 end

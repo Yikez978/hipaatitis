@@ -4,6 +4,7 @@
 class Appointment < ApplicationRecord
   has_many :attendants
   has_many :notes, as: :notable
+  has_many :people, through: :attendants
 
   def names
     attendants.map { |attendant| attendant.person.name }.sort
