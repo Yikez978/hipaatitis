@@ -11,6 +11,7 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li><%= link_to "Probe", '/sql_probe', target: 'probe' %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Welcome, #{current_user.name}", people_path %></li>
